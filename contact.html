@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link
+    href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+    rel="stylesheet"
+  />
+    <title>Dentist - Contact</title>
+    <style>
+      body {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        padding-top: 50px;
+        font-family: "Raleway", sans-serif;
+        background-color: #2d2d2a;
+      }
+      .wrap {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+      .home-button {
+        margin-top: 8px;
+      }
+      .headerbar {
+        height: 50px;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        background-color: #e5dcc5;
+      }
+      .site-name {
+        margin: auto;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .site-name a {
+        color: #2d2d2a;
+        text-decoration: none;
+      }
+      .nav-menu {
+        text-align: center;
+      }
+      .nav-menu ul {
+        margin: 0 0 40px 0;
+        padding: 0;
+        border-bottom: 2px solid #e5dcc5;
+        list-style: none;
+      }
+      .nav-menu ul li {
+        margin: 10px 0;
+        line-height: 26px;
+      }
+      .nav-menu ul li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: #e5dcc5;
+        border-bottom: 1px solid transparent;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .nav-menu ul li a.active {
+        font-weight: bold;
+      }
+      .nav-menu ul li a:hover {
+        border-bottom: 1px solid #2d2d2a;
+      }
+      .news-section {
+        height: 100px;
+        background-color: #e5dcc5;
+      }
+      .news-section p {
+        margin: 0;
+        padding: 0 20px;
+        font-size: 42px;
+        line-height: 100px;
+      }
+      img {
+        box-sizing: border-box;
+        padding: 15px;
+        max-width: 100%;
+      }
+
+      p.small {
+        color: #e5dcc5;
+        text-transform: uppercase;
+        font-size: 12pt;
+        font-weight: 300;
+        text-align: center;
+      }
+      p.mid {
+        color: #e5dcc5;
+        text-transform: uppercase;
+        font-size: 15pt;
+        font-weight: 500;
+        text-align: center;
+      }
+      p.mid:nth-child(3) {
+        color: red;
+      }
+      p.big {
+        color: #e5dcc5;
+        text-transform: uppercase;
+        font-size: 18pt;
+        font-weight: 600;
+        text-align: center;
+      }
+      p.big:nth-child(2) {
+        margin-top: -15px;
+      }
+      label {
+        margin: 0 10px;
+        display: block;
+        color: #e5dcc5;
+      }
+      div div input[type="text"],
+      div div textarea {
+        margin: 0 auto 10px;
+        padding: 5px 10px;
+        width: calc(100% - 20px);
+        background-color: #e5dcc5;
+        color: #2d2d2a;
+        display: block;
+        box-sizing: border-box;
+      }
+      div div textarea {
+        resize: vertical;
+      }
+      div.send {
+        width: 100%;
+        text-align: center;
+      }
+      button.send-btn {
+        margin: 0 auto 10px 0;
+        cursor: pointer;
+        padding: 5px 0;
+        width: 150px;
+        font-size: 16px;
+        line-height: 24px;
+        background-color: #e5dcc5;
+        border: none;
+        border-radius: 15px;
+      }
+      button.send-btn:active {
+        background-color: #c4bca9;
+        -webkit-tap-highlight-color: transparent;
+      }
+      p.posted {
+        color: #e5dcc5;
+        padding: 0 15px;
+      }
+      div.footer {
+        margin-top: 40px;
+        background-color: #e5dcc5;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      div.footer a {
+        display: inline-block;
+        text-decoration: none;
+        color: #2d2d2a;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 5px 0;
+        flex-basis: 50%;
+        font-weight: bold;
+        -webkit-tap-highlight-color: transparent;
+      }
+      div.footer div {
+        border-top: 1px solid #2d2d2a;
+        width: 100%;
+        padding-top: 5px;
+        margin-top: 5px;
+      }
+      div.footer div p {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        color: #2d2d2a;
+        font-size: 14pt;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="headerbar">
+      <div class="site-name"><a href="./index.html">Dentist</a></div>
+    </header>
+    <div class="nav-menu">
+      <ul>
+        <li><a href="./index.html">News</a></li>
+        <li><a href="./about-us.html">About us</a></li>
+        <li><a href="./prices.html">Prices</a></li>
+        <li><a class="active" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="wrap">
+      <article>
+        <div class="news-section"><p>Contact</p></div>
+      </article>
+      <article>
+        <img
+          width="1024"
+          height="auto"
+          src="./pictures/phone-499991_1024.jpg"
+          alt="phone"
+        ></img>
+      </article>
+      <article>
+        <p class="big">Lorem, ipsum dolor.</p>
+        <p class="big">Dentist</p>
+        <p class="small">Adress Lorem ipsum dolor sit.</p>
+        <p class="mid">Adress Lorem ipsum dolor sit.</p>
+        <p class="mid">Owner Lorem, ipsum dolor.</p>
+        <p class="mid">999 999 999</p>
+        <p class="mid">777 777 777</p>
+        <p class="big contact-label">Contact us:</p>
+        <form 
+        id="comment-form"
+        class="sample-form"
+        method="post"
+        action-xhr="#comment-form">
+        <div>
+          <div>
+            <label for="in1">Name:</label>
+            <input type="text" id="in1" required/>
+          </div>
+          <div>
+            <label for="in2">E-mail:</label> <input type="text" id="in2"required />
+          </div>
+          <div>
+            <label for="in3">Message:</label>
+            <textarea type="text" id="in3" rows="4" required></textarea>
+          </div>
+        </div>
+        <div class="send">
+          <button type="submit" class="send-btn">Send</button>
+        </div>
+      </form>
+      <p hidden class="posted">Your message has been sent!</p>
+      </article>
+    </div>
+    <div class="footer">
+      <a href="#">Lorem.</a><a href="#">Lorem, ipsum.</a
+      ><a href="#">Lorem, ipsum.</a><a href="#">Lorem.</a><a href="#">Lorem.</a
+      ><a href="#">Lorem.</a>
+      <div><p>Lorem ipsum dolor sit amet.</p></div>
+    </div>
+  </body>
+</html>
+<script>
+    let commentForm = document.querySelector('#comment-form');
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.querySelector('.posted').removeAttribute('hidden');
+  })
+</script>

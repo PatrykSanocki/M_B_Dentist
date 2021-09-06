@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link
+    href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+    rel="stylesheet"
+  />
+    <title>Dentist</title>
+    <style>
+      body {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        padding-top: 50px;
+        font-family: "Raleway", sans-serif;
+        background-color: #2d2d2a;
+      }
+      .wrap {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+      div.hide-content {
+        position: fixed;
+        z-index: 1000;
+        margin: 0;
+        padding: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+      }
+      .home-button {
+        margin-top: 8px;
+      }
+      .headerbar {
+        height: 50px;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        background-color: #e5dcc5;
+      }
+      .site-name {
+        margin: auto;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .site-name a {
+        color: #2d2d2a;
+        text-decoration: none;
+      }
+      .nav-menu {
+        text-align: center;
+      }
+      .nav-menu ul {
+        margin: 0 0 40px 0;
+        padding: 0;
+        border-bottom: 2px solid #e5dcc5;
+        list-style: none;
+      }
+      .nav-menu ul li {
+        margin: 10px 0;
+        line-height: 26px;
+      }
+      .nav-menu ul li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: #e5dcc5;
+        border-bottom: 1px solid transparent;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .nav-menu ul li a.active {
+        font-weight: bold;
+      }
+      .nav-menu ul li a:hover {
+        border-bottom: 1px solid #2d2d2a;
+      }
+      .news-section {
+        height: 100px;
+        background-color: #e5dcc5;
+      }
+      .news-section p {
+        margin: 0;
+        padding: 0 20px;
+        font-size: 42px;
+        line-height: 100px;
+      }
+      .carousel {
+        position: relative;
+        max-height: 100%;
+      }
+      .carousel button {
+        cursor: pointer;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(20, 20, 20, 0.5);
+        font-size: 14pt;
+        color: white;
+        display: block;
+        z-index: 999;
+        border: none;
+      }
+      .carousel button#prev {
+        top: 50%;
+        left: 30px;
+        transform:translateY(-50%);
+      }
+      .carousel button#next {
+        top: 50%;
+        right: 30px;
+        transform:translateY(-50%);
+      }
+      .carousel .screen {
+        position: relative;
+        max-width: 1024px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .carousel .screen .film {
+        display:flex;
+        overflow: hidden;
+      }
+      .carousel .screen .film img {
+        max-width: 100%;
+        transition: .3s;
+        transform: translateX(0)
+      }
+      .blockquote-panel {
+        padding: 10px;
+        max-height: 85vh !important;
+        text-align: justify;
+        margin: 10px;
+        background-color: #d4d4d4;
+        border: 1px solid #2d2d2a;
+        overflow-y: auto;
+      }
+      .blockquote {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: 90%;
+        transform: translateX(-50%);
+        z-index: 1001;
+      }
+
+      .news {
+        background-color: #848fa5;
+        text-align: center;
+        margin: 15px 10px;
+      }
+      .news .news-title {
+        font-size: 24px;
+        text-align: start;
+        padding: 20px 0;
+        margin: 20px;
+      }
+      .news .news-message {
+        font-size: 16px;
+        padding: 20px 0;
+        margin: 20px 0;
+      }
+      .news .more {
+        margin: 20px auto;
+        padding: 5px 0;
+        width: 150px;
+        font-size: 16px;
+        line-height: 24px;
+        background-color: #e5dcc5;
+        cursor: pointer;
+        border: none;
+        border-radius: 15px;
+      }
+      p.modal-title {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px 0;
+        margin: 10px 0;
+        text-transform: uppercase;
+        border-bottom: 1px solid #2d2d2a;
+      }
+      button.modal-close {
+        margin: 0 auto;
+        padding: 5px 0;
+        cursor: pointer;
+        width: 150px;
+        font-size: 16px;
+        line-height: 24px;
+        background-color: #e5dcc5;
+        border: none;
+        border-radius: 15px;
+      }
+      .news .more,
+      button:active {
+        background-color: #c4bca9;
+        -webkit-tap-highlight-color: transparent;
+      }
+      div.footer {
+        background-color: #e5dcc5;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      div.footer a {
+        display: inline-block;
+        text-decoration: none;
+        color: #2d2d2a;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 5px 0;
+        flex-basis: 50%;
+        font-weight: bold;
+        -webkit-tap-highlight-color: transparent;
+      }
+      div.footer div {
+        border-top: 1px solid #2d2d2a;
+        width: 100%;
+        padding-top: 5px;
+        margin-top: 5px;
+      }
+      div.footer div p {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        color: #2d2d2a;
+        font-size: 14pt;
+        font-weight: bold;
+      }
+
+      @media (min-width: 600px) {
+        .blockquote-panel {
+          margin: 10px auto;
+          max-width: 500px;
+        }
+      }
+
+      @media (orientation: landscape) {
+        .blockquote-panel {
+          max-height: 75vh !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div hidden id="hide-content-box" class="hide-content"></div>
+    <header class="headerbar">
+      <div class="site-name"><a href="./index.html">Dentist</a></div>
+    </header>
+    <div class="nav-menu">
+      <ul>
+        <li><a class="active" href="./index.html">News</a></li>
+        <li><a href="./about-us.html">About us</a></li>
+        <li><a href="prices.html">Prices</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="wrap">
+      <article>
+        <div class="carousel">
+        <div class="screen">
+          <div class="film">
+            <img
+              src="./pictures/chair-2589770_1024.jpg"
+              width="1024"
+              height="auto"
+            ></img>
+            <img
+              src="./pictures/dentist-428646_1024.jpg"
+              width="1024"
+              height="auto"
+            ></img>
+            <img
+              src="./pictures/dentist-1639683_1024.jpg"
+              width="1024"
+              height="auto"
+            ></img>
+          </div>
+          <button id="prev"><</button>
+          <button id="next">></button>
+          </div>
+        </div>
+        <div class="news-section"><p>News</p></div>
+      </article>
+      <article>
+        <div class="news">
+          <p class="news-title">News</p>
+          <p class="news-message">Clinic closed for a day on 21.05.2021</p>
+          <button id="blockquote-1-btn" class="more">More</button>
+          <div hidden class="blockquote" id="quote-closed">
+            <div class="blockquote-panel">
+              <p class="modal-title">news</p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              dolorem animi fugiat harum aut cum, id obcaecati debitis molestias
+              eius, est iusto corporis sit saepe, autem accusantium? Est cumque
+              quibusdam eveniet aut ratione nam animi. Debitis, quisquam
+              accusantium. Quisquam inventore dicta asperiores maiores, quasi
+              repellendus error officia quae obcaecati ducimus sit, nihil,
+              sapiente perferendis voluptates debitis aut. Deleniti atque
+              dignissimos repellendus praesentium assumenda quam rerum incidunt
+              iure sit omnis impedit porro alias adipisci consequatur enim
+              eligendi odit aperiam provident officiis quibusdam blanditiis,
+              expedita dolores! Accusamus, facilis id perspiciatis deleniti
+              natus libero nihil alias maxime maiores consequuntur. Voluptas
+              nesciunt dolorum consequuntur harum doloribus explicabo fugiat,
+              quod debitis commodi, amet alias, ipsa suscipit reprehenderit sunt
+              facilis veritatis? Illum dolorum ad eveniet, non in tempore
+              repellat molestias ea nam nulla, nihil ex quaerat? Lorem, ipsum
+              dolor sit amet consectetur adipisicing elit. Commodi dolorem animi
+              fugiat harum aut cum, id obcaecati debitis molestias eius, est
+              iusto corporis sit saepe, autem accusantium? Est cumque quibusdam
+              eveniet aut ratione nam animi. Debitis, quisquam accusantium.
+              Quisquam inventore dicta asperiores maiores, quasi repellendus
+              error officia quae obcaecati ducimus sit, nihil, sapiente
+              perferendis voluptates debitis aut. Deleniti atque dignissimos
+              repellendus praesentium assumenda quam rerum incidunt iure sit
+              omnis impedit porro alias adipisci consequatur enim eligendi odit
+              aperiam provident officiis quibusdam blanditiis, expedita dolores!
+              Accusamus, facilis id perspiciatis deleniti natus libero nihil
+              alias maxime maiores consequuntur. Voluptas nesciunt dolorum
+              consequuntur harum doloribus explicabo fugiat, quod debitis
+              commodi, amet alias, ipsa suscipit reprehenderit sunt facilis
+              veritatis? Illum dolorum ad eveniet, non in tempore repellat
+              molestias ea nam nulla, nihil ex quaerat?
+            </div>
+            <button class="modal-close">Close</button>
+          </div>
+        </div>
+      </article>
+      <article>
+        <div class="news">
+          <p class="news-title">Health contract</p>
+          <p class="news-message">
+            Read more about our national healthcare contract
+          </p>
+          <button id="blockquote-2-btn" class="more">More</button>
+          <div hidden class="blockquote" id="quote-closed2">
+            <div class="blockquote-panel">
+              <p class="modal-title">Health contract</p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+              nobis eaque sed non veniam optio doloremque ab voluptas, in
+              possimus facilis et molestias aspernatur voluptatem amet itaque
+              debitis quasi at doloribus ad, magnam provident! Repudiandae
+              assumenda quasi cum exercitationem ab. Lorem ipsum dolor, sit amet
+              consectetur adipisicing elit. Optio quidem quibusdam nihil nostrum
+              quae ratione magnam facere quia ullam, deserunt aspernatur in
+              dicta accusantium impedit vel quasi magni nisi libero perspiciatis
+              cum, rerum laudantium odio repellendus? Nam nemo fugit animi.
+            </div>
+            <button class="modal-close">Close</button>
+          </div>
+        </div>
+      </article>
+      <article>
+        <div class="news">
+          <p class="news-title">Private healthcare</p>
+          <p class="news-message">Check our private healthcare offer</p>
+          <button id="blockquote-3-btn" class="more">More</button>
+          <div hidden class="blockquote" id="quote-closed3">
+            <div class="blockquote-panel">
+              <p class="modal-title">Private healthcare</p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+              consectetur culpa quo, vel error commodi ducimus quidem
+              necessitatibus sunt nobis quasi temporibus autem quod, animi
+              perferendis fugiat fuga iure exercitationem! Sit vel in provident
+              enim adipisci minima temporibus expedita, sint velit voluptatem
+              veniam? Quos repellat repellendus id, dolores iste dolor assumenda
+              officiis amet error saepe, esse et odio ullam eos ab. Ad et quos
+              fuga consectetur earum laborum blanditiis maxime iusto
+              exercitationem possimus expedita, sequi voluptatibus impedit,
+              voluptatum perspiciatis. Nulla. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Maxime veritatis, ducimus quasi ab
+              quisquam dolor sapiente. Explicabo quam sapiente perferendis?
+            </div>
+            <button
+              class="modal-close"
+              on="tap:quote-closed3.close,hide-content-box.hide"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="footer">
+      <a href="#">Lorem.</a><a href="#">Lorem, ipsum.</a
+      ><a href="#">Lorem, ipsum.</a><a href="#">Lorem.</a><a href="#">Lorem.</a
+      ><a href="#">Lorem.</a>
+      <div><p>Lorem ipsum dolor sit amet.</p></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  let hideContentBox = document.querySelector("#hide-content-box");
+  let blockquote1 = document.querySelector("#quote-closed");
+  let blockquote1Btn = document.querySelector("#blockquote-1-btn");
+  let blockquote2 = document.querySelector("#quote-closed2");
+  let blockquote2Btn = document.querySelector("#blockquote-2-btn");
+  let blockquote3 = document.querySelector("#quote-closed3");
+  let blockquote3Btn = document.querySelector("#blockquote-3-btn");
+
+  let showHide = (i, iBtn) => {
+    iBtn.addEventListener("click", () => {
+      i.removeAttribute("hidden");
+      hideContentBox.removeAttribute("hidden");
+    });
+
+    i.querySelector("button").addEventListener("click", () => {
+      i.setAttribute("hidden", true);
+      hideContentBox.setAttribute("hidden", true);
+    });
+  };
+
+  showHide(blockquote1, blockquote1Btn);
+  showHide(blockquote2, blockquote2Btn);
+  showHide(blockquote3, blockquote3Btn);
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+  let btnPrev = document.querySelector("#prev");
+  let btnNext = document.querySelector("#next");
+  let clickCount = 9000000;
+  let carouselImgs = document.querySelectorAll(".carousel .screen .film img");
+  btnPrev.addEventListener("click", () => {
+    clickCount--;
+    carouselImgs.forEach(
+      (i) => (i.style.transform = `translateX(-${(clickCount % 3) * 100}%)`)
+    );
+  });
+
+  btnNext.addEventListener("click", () => {
+    clickCount++;
+    carouselImgs.forEach(
+      (i) => (i.style.transform = `translateX(-${(clickCount % 3) * 100}%)`)
+    );
+  });
+});
+
+</script>
